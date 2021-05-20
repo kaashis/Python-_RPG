@@ -166,7 +166,7 @@ while True:
     # if they type 'get' first
     if move[0] == 'get':
         # if the room contains an item, and the item is the one they want to get
-        if "item" in rooms[currentRoom] and move[1] in rooms[currentRoom]['item']:
+        if "item" in rooms[currentRoom] and move[1] in rooms[currentRoom]['item'] and move[1]!="tiger":
             if move[1]=='door':
                 print("You can not get door. Please use: open door")
             else:
@@ -224,6 +224,7 @@ while True:
         elif 'meat' in inventory and 'item' in rooms[currentRoom]:
             inventory.remove('meat') # remove meat since tiger got the meat
             print("The tiger ate the meat and let you live...Lucky Day for you!")
+            print("Run away before the tiger gets hungry......")
         elif 'item' in rooms[currentRoom]:
             print('A tiger has got you... GAME OVER!') # user loses if he goes bare handed in the forest
             break
@@ -236,7 +237,7 @@ while True:
         if 'cookie' in inventory:
             print('A monster has snatched your cookie and ran away!')
         
-            #delete monster from that room and cookie from the inventory
+            #delete monster from go ethat room and cookie from the inventory
             del rooms[currentRoom]['item']["monster"]
             inventory.remove('cookie')
 
