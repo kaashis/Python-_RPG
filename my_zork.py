@@ -41,12 +41,17 @@ def showStatus():
     if 'south' in rooms[currentRoom]:
         print(f"You can go south to {rooms[currentRoom]['south']}")
 
+# teleport function to move to a room/place from anywhere directly
 def teleport():
     print("Where would you like to teleport? or press 'q' to cancel!\n")
+    #print the list of current rooms
     print(list(rooms.keys()))
     destination = input(">").lower()
+
+    #cancel teleport
     if(destination=='q'):
         clear()
+    #change the current room to user_input
     elif destination in [room.lower() for room in list(rooms.keys())]:
         if destination=='bedroom' and 'key' not in inventory:
             print("You need a KEY to teleport to the Bedroom!")
@@ -205,21 +210,22 @@ while True:
             if selection == 'a':
                 del rooms[currentRoom]['item']
                 print("You killed the tiger and saved your life. Good job!")
+            #user wins if he goes with meat and sword and offers meat to tiger
             elif selection =='b':
-                inventory.remove('meat')
-                print("Hooray..You befriended the tiger. He showed you way out of the forest and you escaped. You Win!!")
+                inventory.remove('meat') #best practice only
+                print("Hooray..You befriended the tiger. He showed you way out of the forest and you escaped. You Win!!") 
                 break
             else:
                 print("Invalid selection! Please select a  or b")
                 prompts()
         elif 'sword' in inventory and 'item' in rooms[currentRoom]:
-            del rooms[currentRoom]['item']
+            del rooms[currentRoom]['item'] # remove tiger since it is dead
             print("You killed the tiger and saved your life. Good job!")
         elif 'meat' in inventory and 'item' in rooms[currentRoom]:
-            inventory.remove('meat')
+            inventory.remove('meat') # remove meat since tiger got the meat
             print("The tiger ate the meat and let you live...Lucky Day for you!")
         elif 'item' in rooms[currentRoom]:
-            print('A tiger has got you... GAME OVER!')
+            print('A tiger has got you... GAME OVER!') # user loses if he goes bare handed in the forest
             break
         else:
             continue
