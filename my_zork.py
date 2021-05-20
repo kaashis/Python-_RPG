@@ -224,7 +224,7 @@ while True:
         elif 'meat' in inventory and 'item' in rooms[currentRoom]:
             inventory.remove('meat') # remove meat since tiger got the meat
             print("The tiger ate the meat and let you live...Lucky Day for you!")
-            print("Run away before the tiger gets hungry......")
+            print("Run away before the tiger gets hungry......Don't come back without a sword!")
         elif 'item' in rooms[currentRoom]:
             print('A tiger has got you... GAME OVER!') # user loses if he goes bare handed in the forest
             break
