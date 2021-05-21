@@ -199,6 +199,7 @@ while True:
         print('You escaped the house with the ultra rare key and magic potion... YOU WIN!')
         break
     elif currentRoom == 'Forest':
+        showStatus()
         if 'sword' in inventory and 'meat' in inventory and 'item' in rooms[currentRoom]:
             def prompts():
                 print("Please select a or b:")
