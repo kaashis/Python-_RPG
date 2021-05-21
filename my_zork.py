@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os
 clear = lambda: os.system('clear')
-
+clear()
 # Replace RPG starter project with this code when new instructions are live
 
 def showInstructions():
